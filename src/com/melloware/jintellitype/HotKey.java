@@ -3,6 +3,7 @@ package com.melloware.jintellitype;
 import javax.print.attribute.standard.MediaSize.Other;
 import javax.swing.*;
 
+import service.ScriptService;
 import ui.ScriptPanel;
 import util.ScriptUtil;
 
@@ -17,9 +18,10 @@ public class HotKey implements HotkeyListener {
     private ScriptPanel sp;
     private JTextArea ta;
 
-    public HotKey(ScriptPanel sp,JTextArea ta){
-        this.sp=sp;
-        this.ta=ta;
+    private ScriptService ss;
+
+    public HotKey(ScriptService ss){
+        this.ss=ss;
     }
 
     /**
@@ -35,8 +37,7 @@ public class HotKey implements HotkeyListener {
                 break;
             case KEY_2:
                 System.out.println("F1按下.........");
-                sp.changeHwnd();
-                sp.changeFocus();
+                ss.changeHwnd();
                 break;
             case KEY_3:
                 System.out.println("系统退出..a........");
@@ -44,10 +45,6 @@ public class HotKey implements HotkeyListener {
                 break;
             case KEY_4:
                 System.out.println("f2按下");
-                if(sp.getHwnd()==null)
-                    ta.append("未获得句柄\n");
-                else
-                    ta.append(ScriptUtil.getPosition(Integer.parseInt(sp.getHwnd()))+"\n");
                 break;
         }
 
