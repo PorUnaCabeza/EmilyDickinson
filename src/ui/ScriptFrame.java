@@ -17,14 +17,9 @@ public class ScriptFrame extends JFrame{
 		sp.setScriptService(ss);
 		HotKey hotkey=new HotKey(ss);
 		hotkey.initHotkey();
-
 		sp.setSize(new Dimension(400,300));
-		JTextArea textArea=new JTextArea(10,5);
-		JScrollPane scroll = new JScrollPane(textArea);
-		scroll.setHorizontalScrollBarPolicy(
-				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scroll.setVerticalScrollBarPolicy(
-				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+		ScriptBottomPanel sbp=new ScriptBottomPanel();
 
 		this.setTitle("test");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +28,7 @@ public class ScriptFrame extends JFrame{
 		this.setLocation(100, 100);
 
 		this.add(sp,BorderLayout.CENTER);
-		this.add(scroll,BorderLayout.SOUTH);
+		this.add(sbp,BorderLayout.SOUTH);
 		this.setAlwaysOnTop(true);
 		this.setVisible(true);
 		
