@@ -31,7 +31,6 @@ public class ScriptPanel extends JPanel{
 	}
 	@Override
 	public void paint(Graphics g) {
-		// ���û��෽��
 		super.paint(g);
 		for(int i=0;i<layout.size();i++)
 			layout.get(i).paint(g);
